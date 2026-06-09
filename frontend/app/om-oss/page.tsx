@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/Button';
-import { Package, Repeat01, Edit01 } from '@untitledui/icons';
+import { Package, Pencil, Repeat } from "lucide-react";
 
 export default function OmOss() {
   const concepts = [
@@ -11,12 +11,12 @@ export default function OmOss() {
     {
       title: 'Mestre',
       description: 'Lær de spesifikke teknikkene og triksene som gjør at akkurat ditt apparat presterer på sitt beste.',
-      icon: <Repeat01 className="w-6 h-6" />,
+      icon: <Repeat className="w-6 h-6" />,
     },
     {
       title: 'Skap',
       description: 'Bruk våre spesialtilpassede oppskrifter som er optimalisert for å gi perfekte resultater hver gang.',
-      icon: <Edit01 className="w-6 h-6" />,
+      icon: <Pencil className="w-6 h-6" />,
     },
   ];
 

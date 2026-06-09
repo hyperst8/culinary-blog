@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { SearchMd } from '@untitledui/icons';
+import { Search, Utensils } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -49,7 +49,7 @@ export function Navbar() {
     <nav className="w-full bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-surface-muted">
       <div className="container py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          {/* <Utensils01 className="w-6 h-6 text-brand-600" /> */}
+          <Utensils className="w-6 h-6 text-brand-600" />
           <span className="text-xl font-bold tracking-tight text-text-tertiary">
             Culinary<span className="text-brand-600">Gear</span>
           </span>
@@ -94,7 +94,7 @@ export function Navbar() {
             onClick={handleSearchClick}
             className="search-trigger p-2 rounded-full bg-surface-peach text-brand-700 hover:bg-brand-100 transition-colors cursor-pointer z-10"
           >
-            <SearchMd className="w-5 h-5" />
+            <Search className="w-5 h-5" />
           </button>
         </div>
       </div>

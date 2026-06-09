@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Badge } from './Badge';
 import { Recipe } from '@/lib/mockData';
-// import { Utensils01, Clock, Flame } from '@untitledui/icons';
+import { Utensils } from 'lucide-react';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -14,7 +14,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-50">
         {/* Placeholder if no image */}
         <div className="absolute inset-0 flex items-center justify-center text-brand-200">
-          {/* <Utensils01 className="w-12 h-12" /> */}
+          <Utensils className="w-12 h-12" />
         </div>
 
         {/* Actual image - Next.js Image component */}
@@ -28,7 +28,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
 
         {/* Top right icon badge (as seen in design) */}
         <div className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-brand-600 shadow-sm">
-          {/* <Utensils01 className="w-4 h-4" /> */}
+          <Utensils className="w-4 h-4" />
         </div>
       </div>
 
@@ -40,7 +40,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
         <div className="flex flex-wrap items-center gap-2 mt-auto pt-2">
           <Badge type="time">{recipe.time}</Badge>
           <Badge type="calories">{recipe.calories}</Badge>
-          <Badge type="category" icon={false}>{recipe.mealType}</Badge>
+          <Badge type="category">{recipe.mealType}</Badge>
         </div>
       </div>
     </Link>

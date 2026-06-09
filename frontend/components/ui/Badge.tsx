@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Clock } from '@untitledui/icons';
+import { Clock, Flame, UtensilsCrossed } from "lucide-react";
 
 type BadgeType = 'time' | 'calories' | 'category' | 'default';
 
@@ -23,8 +23,8 @@ export function Badge({ type = 'default', icon = true, className = '', children,
   return (
     <span className={`${baseStyles} ${styles} ${className}`} {...props}>
       {icon && type === 'time' && <Clock className="w-3.5 h-3.5 opacity-70" />}
-      {/* {icon && type === 'calories' && <Flame className="w-3.5 h-3.5 opacity-70" />} */}
-      {/* {icon && type === 'category' && <Utensils className="w-3.5 h-3.5 opacity-70" />} */}
+      {icon && type === 'calories' && <Flame className="w-3.5 h-3.5 opacity-70" />}
+      {icon && type === 'category' && <UtensilsCrossed className="w-3.5 h-3.5 opacity-70" />}
       {children}
     </span>
   );

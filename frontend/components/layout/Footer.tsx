@@ -1,5 +1,5 @@
 import Link from 'next/link';
-// import { Utensils01 } from '@untitledui/icons';
+import { Utensils } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col gap-2">
           <Link href="/" className="flex items-center gap-2">
-            {/* <Utensils01 className="w-5 h-5 text-brand-600" /> */}
+            <Utensils className="w-5 h-5 text-brand-600" />
             <span className="text-lg font-bold tracking-tight text-text-tertiary">
               Culinary<span className="text-brand-600">Gear</span>
             </span>

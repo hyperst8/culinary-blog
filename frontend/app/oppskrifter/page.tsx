@@ -1,18 +1,8 @@
 import { RecipeCard } from '@/components/ui/RecipeCard';
 import { airfryerRecipes, categories } from '@/lib/mockData';
-import { Activity, Database01, Thermometer01, Package } from '@untitledui/icons';
+import { getIcon } from '@/utils/utils';
 
 export default function Oppskrifter() {
-  const getIcon = (slug: string, active: boolean) => {
-    const className = `w-5 h-5 ${active ? 'text-white' : 'text-text-secondary'}`;
-    switch (slug) {
-      case 'airfryer': return <Activity className={className} />;
-      case 'jerngryte': return <Database01 className={className} />;
-      case 'riskoker': return <Thermometer01 className={className} />;
-      case 'stekepanne': return <Package className={className} />;
-      default: return <Activity className={className} />;
-    }
-  };
 
   const activeCategory = 'airfryer';
 
@@ -37,7 +27,7 @@ export default function Oppskrifter() {
                         : 'text-text-secondary hover:bg-surface-muted hover:text-text-primary'
                     }`}
                   >
-                    {getIcon(category.slug, isActive)}
+                    {getIcon(category.slug, `w-5 h-5 ${isActive ? 'text-white' : 'text-text-secondary'}`)}
                     {category.name}
                   </button>
                 );

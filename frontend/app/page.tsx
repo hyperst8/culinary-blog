@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { CategoryCard } from '@/components/ui/CategoryCard';
 import { RecipeCard } from '@/components/ui/RecipeCard';
 import { categories, featuredRecipes } from '@/lib/mockData';
-import { ArrowRight } from '@untitledui/icons';
+import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
