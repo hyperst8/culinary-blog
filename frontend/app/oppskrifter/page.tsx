@@ -24,7 +24,7 @@ export default function Oppskrifter() {
                 return (
                   <button
                     key={category.id}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors text-left ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors text-left cursor-pointer ${
                       isActive
                         ? "bg-brand-600 text-white shadow-sm"
                         : "text-text-secondary hover:bg-surface-muted hover:text-text-primary"
@@ -46,7 +46,7 @@ export default function Oppskrifter() {
         <main className="flex-1">
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-text-tertiary mb-2">
-              Airfryer Oppskrifter
+              Airfryer oppskrifter
             </h1>
             <p className="text-text-secondary text-lg">12 smakfulle retter</p>
           </div>

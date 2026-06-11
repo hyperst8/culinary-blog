@@ -48,7 +48,7 @@ export const featuredRecipes: Recipe[] = [
   {
     id: "r1",
     slug: "crispy-kylling-sotpotet",
-    title: "Crispy Kylling & Søtpotet",
+    title: "Crispy kylling & søtpotet",
     description: "En rask og sunn middag.",
     time: "20 min",
     calories: "450 kcal",
@@ -60,7 +60,7 @@ export const featuredRecipes: Recipe[] = [
   {
     id: "r2",
     slug: "klassisk-biffgryte",
-    title: "Klassisk Biffgryte",
+    title: "Klassisk biffgryte",
     description: "Langtidskokt og full av smak.",
     time: "120 min",
     calories: "620 kcal",
@@ -72,7 +72,7 @@ export const featuredRecipes: Recipe[] = [
   {
     id: "r3",
     slug: "energifyllt-frokostpanne",
-    title: "Energifyllt Frokostpanne",
+    title: "Energifyllt frokostpanne",
     description: "Den perfekte starten på dagen.",
     time: "15 min",
     calories: "380 kcal",
@@ -87,7 +87,7 @@ export const airfryerRecipes: Recipe[] = [
   {
     id: "a1",
     slug: "crispy-kyllingvinger-hvitlok",
-    title: "Crispy Kyllingvinger med Hvitløk",
+    title: "Crispy kyllingvinger med hvitløk",
     description: "Perfekt som snacks eller hovedrett.",
     time: "25 min",
     calories: "320 kcal",
@@ -99,7 +99,7 @@ export const airfryerRecipes: Recipe[] = [
   {
     id: "a2",
     slug: "perfekte-sotpotet-fries",
-    title: "Perfekte Søtpotet Fries",
+    title: "Perfekte søtpotet fries",
     description: "Sprø utenpå og myke inni.",
     time: "15 min",
     calories: "180 kcal",
@@ -111,7 +111,7 @@ export const airfryerRecipes: Recipe[] = [
   {
     id: "a3",
     slug: "rask-laks-asparges",
-    title: "Rask Laks med Asparges",
+    title: "Rask laks med asparges",
     description: "Sunn og enkel middag på null komma niks.",
     time: "12 min",
     calories: "420 kcal",
@@ -125,7 +125,7 @@ export const airfryerRecipes: Recipe[] = [
 export const singleRecipe: Recipe = {
   id: "r4",
   slug: "spro-airfryer-kylling",
-  title: "Sprø Airfryer Kylling",
+  title: "Sprø airfryer kylling",
   description:
     "En sunnere og utrolig rask måte å lage klassisk 'fried chicken' på. Airfryeren gir en fantastisk sprø skorpe uten behov for store mengder olje.",
   time: "30 min",
