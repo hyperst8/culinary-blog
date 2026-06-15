@@ -73,7 +73,10 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-8 font-medium text-text-secondary">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              link.href === "/"
+                ? pathname === link.href
+                : pathname.includes(link.href);
             return (
               <Link
                 key={link.href}
