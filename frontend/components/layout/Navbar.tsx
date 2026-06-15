@@ -3,11 +3,12 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Utensils } from "lucide-react";
+import { Search, Utensils, Hamburger, UtensilsCrossed } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -34,6 +35,20 @@ export function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isSearchOpen]);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSearchClick = () => {
     setIsSearchOpen((prev) => !prev);
@@ -74,31 +89,76 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="flex items-center gap-2 relative">
-          <div
-            className={`absolute right-2 flex items-center bg-gray-300/100 rounded-full transition-all duration-300 ease-in-out border border-transparent overflow-hidden ${
-              isSearchOpen
-                ? "w-48 md:w-64 px-3 py-1.5 opacity-100 border-surface-muted"
-                : "w-0 opacity-0"
-            }`}
-          >
-            <input
-              ref={inputRef}
-              type="text"
-              placeholder="Søk på oppskrifter"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent text-text-primary text-sm focus:outline-none w-full placeholder:text-text-muted"
-            />
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 relative">
+            <div
+              className={`absolute right-2 flex items-center bg-gray-300/100 rounded-full transition-all duration-300 ease-in-out border border-transparent overflow-hidden ${
+                isSearchOpen
+                  ? "w-48 md:w-64 px-3 py-1.5 opacity-100 border-surface-muted"
+                  : "w-0 opacity-0"
+              }`}
+            >
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Søk på oppskrifter"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-transparent text-text-primary text-sm focus:outline-none w-full placeholder:text-text-muted"
+              />
+            </div>
+
+            <button
+              aria-label="Søk"
+              onClick={handleSearchClick}
+              className="search-trigger p-2 rounded-full bg-surface-peach text-brand-700 hover:bg-brand-100 transition-colors cursor-pointer z-10"
+            >
+              <Search className="w-5 h-5" />
+            </button>
           </div>
 
           <button
-            aria-label="Søk"
-            onClick={handleSearchClick}
-            className="search-trigger p-2 rounded-full bg-surface-peach text-brand-700 hover:bg-brand-100 transition-colors cursor-pointer z-10"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-full bg-surface-peach text-brand-700 hover:bg-brand-100 transition-colors cursor-pointer z-10"
+            aria-label={isMobileMenuOpen ? "Lukk meny" : "Åpne meny"}
           >
-            <Search className="w-5 h-5" />
+            {isMobileMenuOpen ? (
+              <UtensilsCrossed className="w-5 h-5 transition-transform duration-200" />
+            ) : (
+              <Hamburger className="w-5 h-5 transition-transform duration-200" />
+            )}
           </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-b border-surface-muted bg-surface/95 backdrop-blur-md ${
+          isMobileMenuOpen
+            ? "max-h-64 opacity-100 border-t"
+            : "max-h-0 opacity-0 border-t-0"
+        }`}
+      >
+        <div className="container py-4 flex flex-col gap-2">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center justify-between text-base font-medium py-3 px-4 rounded-xl transition-all duration-200 ${
+                  isActive
+                    ? "text-brand-600 bg-brand-50/70 font-semibold"
+                    : "text-text-secondary hover:text-brand-600 hover:bg-brand-50/40"
+                }`}
+              >
+                <span>{link.label}</span>
+                <span
+                  className={`w-1.5 h-1.5 rounded-full bg-brand-600 transition-all duration-300 ${isActive ? "scale-100" : "scale-0"}`}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>
