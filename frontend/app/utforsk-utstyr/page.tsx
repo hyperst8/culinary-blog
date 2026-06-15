@@ -10,6 +10,12 @@ import {
   Utensils,
   Sprout,
   Coffee,
+  CookingPot,
+  Egg,
+  Snowflake,
+  Cloud,
+  Droplet,
+  Timer,
   LucideIcon
 } from "lucide-react";
 
@@ -23,6 +29,12 @@ const iconMap: Record<string, LucideIcon> = {
   Utensils,
   Sprout,
   Coffee,
+  CookingPot,
+  Egg,
+  Snowflake,
+  Cloud,
+  Droplet,
+  Timer,
 };
 
 export default function UtforskUtstyr() {
