@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Search, Utensils } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -22,16 +22,16 @@ export function Navbar() {
       if (
         inputRef.current &&
         !inputRef.current.contains(event.target as Node) &&
-        !(event.target as HTMLElement).closest('.search-trigger')
+        !(event.target as HTMLElement).closest(".search-trigger")
       ) {
         setIsSearchOpen(false);
       }
     }
     if (isSearchOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isSearchOpen]);
 
@@ -40,9 +40,9 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { href: '/', label: 'Hjem' },
-    { href: '/oppskrifter', label: 'Oppskrifter' },
-    { href: '/om-oss', label: 'Om oss' },
+    { href: "/", label: "Hjem" },
+    { href: "/oppskrifter", label: "Oppskrifter" },
+    { href: "/om-oss", label: "Om oss" },
   ];
 
   return (
@@ -64,8 +64,8 @@ export function Navbar() {
                 href={link.href}
                 className={`relative pb-1 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-600 after:transition-transform after:duration-300 after:origin-left ${
                   isActive
-                    ? 'text-brand-600 after:scale-x-100'
-                    : 'text-text-secondary hover:text-brand-600 after:scale-x-0 hover:after:scale-x-100'
+                    ? "text-brand-600 after:scale-x-100"
+                    : "text-text-secondary hover:text-brand-600 after:scale-x-0 hover:after:scale-x-100"
                 }`}
               >
                 {link.label}
@@ -76,8 +76,11 @@ export function Navbar() {
 
         <div className="flex items-center gap-2 relative">
           <div
-            className={`absolute right-2 flex items-center bg-gray-300/50 rounded-full transition-all duration-300 ease-in-out border border-transparent overflow-hidden ${isSearchOpen ? 'w-48 md:w-64 px-3 py-1.5 opacity-100 border-surface-muted' : 'w-0 opacity-0'
-              }`}
+            className={`absolute right-2 flex items-center bg-gray-300/100 rounded-full transition-all duration-300 ease-in-out border border-transparent overflow-hidden ${
+              isSearchOpen
+                ? "w-48 md:w-64 px-3 py-1.5 opacity-100 border-surface-muted"
+                : "w-0 opacity-0"
+            }`}
           >
             <input
               ref={inputRef}
@@ -101,4 +104,3 @@ export function Navbar() {
     </nav>
   );
 }
-
