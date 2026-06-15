@@ -56,6 +56,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Hjem" },
+    { href: "/utforsk-utstyr", label: "Utforsk utstyr" },
     { href: "/oppskrifter", label: "Oppskrifter" },
     { href: "/om-oss", label: "Om oss" },
   ];

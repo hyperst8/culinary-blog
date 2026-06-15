@@ -25,7 +25,7 @@ export default function Home() {
               tradisjonell hjemmelaging og moderne kjøkkenteknologi.
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-4">
-              <Link href="/oppskrifter">
+              <Link href="/utforsk-utstyr">
                 <Button
                   variant="solid"
                   className="w-full sm:w-auto text-md px-8 py-4"

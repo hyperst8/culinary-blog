@@ -180,3 +180,113 @@ export const singleRecipe: Recipe = {
     },
   ],
 };
+
+export type EquipmentUseArea = {
+  name: string;
+  icon: string;
+};
+
+export type Equipment = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  categorySlug: string;
+  useAreas: EquipmentUseArea[];
+};
+
+export const equipmentItems: Equipment[] = [
+  {
+    id: "e1",
+    title: "Airfryer",
+    description: "Det moderne kjøkkenets må-ha. En airfryer bruker rask luftsirkulasjon til å tilberede mat raskt og jevnt med lite eller ingen olje. Den er perfekt for å oppnå en sprø tekstur på alt fra grønnsaker to proteiner, noe som gjør den til et sunnere alternativ til frityrsteking, samtidig som du sparer betydelig med tid og energi sammenlignet med en tradisjonell stekeovn.",
+    image: "/images/equipment_airfryer.png",
+    categorySlug: "airfryer",
+    useAreas: [
+      { name: "Sprø snacks", icon: "Cookie" },
+      { name: "Raske proteiner", icon: "Zap" },
+      { name: "Bakte grønnsaker", icon: "Leaf" },
+      { name: "Gjenoppvarming", icon: "Flame" },
+    ],
+  },
+  {
+    id: "e2",
+    title: "Jerngryte",
+    description: "Hjørnesteinen i langtidskoking. En støpejernsgryte av høy kvalitet gir enestående varmelagring og varmefordeling. Perfekt for gryteretter, bresering og brødbaking. Den kan flyttes sømløst fra komfyren til stekeovnen og direkte til middagsbordet. Grytens holdbarhet gjør at den ofte varer i generasjoner og utvikler en naturlig slipp-lett-overflate over tid.",
+    image: "/images/equipment_jerngryte.png",
+    categorySlug: "jerngryte",
+    useAreas: [
+      { name: "Gryteretter", icon: "Soup" },
+      { name: "Grytebrød", icon: "Flame" },
+      { name: "Bresert kjøtt", icon: "Beef" },
+      { name: "Frityrsteking", icon: "Flame" },
+    ],
+  },
+  {
+    id: "e3",
+    title: "Riskoker",
+    description: "Presisjonskoking for perfekte riskorn. Moderne riskokere bruker avansert 'fuzzy logic'-teknologi for å justere koketid og temperatur dynamisk. Dette sikrer perfekt, luftig ris, perfekt tilberedt quinoa eller kremet grøt uten konstant tilsyn, slik at du kan fokusere på andre deler av matlagingen.",
+    image: "/images/equipment_riskoker.png",
+    categorySlug: "riskoker",
+    useAreas: [
+      { name: "Perfekt ris", icon: "Utensils" },
+      { name: "Quinoa & korn", icon: "Sprout" },
+      { name: "Frokostgrøt", icon: "Coffee" },
+      { name: "Dampede grønnsaker", icon: "Leaf" },
+    ],
+  },
+];
+
+export const allRecipes: Recipe[] = [
+  ...featuredRecipes,
+  ...airfryerRecipes,
+  {
+    id: "jg1",
+    slug: "klassisk-biffgryte",
+    title: "Klassisk biffgryte i jerngryte",
+    description: "En fyldig og varmende biffgryte som koker seg mør i støpejernsgryten. Perfekt søndagsmiddag.",
+    time: "120 min",
+    calories: "620 kcal",
+    mealType: "Middag",
+    tags: ["Middag", "Tradisjonell"],
+    categoryId: "c2",
+    image: "/images/recipe_stew.png",
+  },
+  {
+    id: "jg2",
+    slug: "langtidskokt-lammeskank",
+    title: "Langtidskokt lammeskank",
+    description: "Møre lammeskanker som faller av benet etter noen timer i jerngryten med rødvin og rotgrønnsaker.",
+    time: "180 min",
+    calories: "750 kcal",
+    mealType: "Middag",
+    tags: ["Middag", "Festmat"],
+    categoryId: "c2",
+    image: "/images/recipe_stew.png",
+  },
+  {
+    id: "rk1",
+    slug: "perfekt-sushiris",
+    title: "Perfekt sushiris i riskoker",
+    description: "Det hemmelige trikset bak god sushi er perfekt kokt og krydret ris. Her får du det til hver gang.",
+    time: "30 min",
+    calories: "280 kcal",
+    mealType: "Tilbehør",
+    tags: ["Mellommåltid", "Asiatisk"],
+    categoryId: "c3",
+    image: "/images/recipe_breakfast.png",
+  },
+  {
+    id: "rk2",
+    slug: "kremet-havregrot-kanel",
+    title: "Kremet havregrøt med kanel",
+    description: "Lag frokosten superenkel ved å la riskokeren gjøre jobben. Perfekt kremet resultat.",
+    time: "15 min",
+    calories: "320 kcal",
+    mealType: "Frokost",
+    tags: ["Frokost", "Sunn"],
+    categoryId: "c3",
+    image: "/images/recipe_breakfast.png",
+  }
+];
+
